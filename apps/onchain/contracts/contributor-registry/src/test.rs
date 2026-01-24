@@ -1,11 +1,8 @@
 #![cfg(test)]
 
-use crate::{ContributorRegistryContract, ContributorRegistryContractClient};
 use crate::errors::ContributorError;
-use soroban_sdk::{
-    testutils::Address as _,
-    Address, Env, String,
-};
+use crate::{ContributorRegistryContract, ContributorRegistryContractClient};
+use soroban_sdk::{testutils::Address as _, Address, Env, String};
 
 fn setup_test<'a>(env: &Env) -> (ContributorRegistryContractClient<'a>, Address, Address) {
     let admin = Address::generate(env);

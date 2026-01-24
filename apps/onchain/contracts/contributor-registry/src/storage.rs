@@ -3,8 +3,8 @@ use soroban_sdk::{contracttype, Address, String};
 #[contracttype]
 #[derive(Clone)]
 pub enum DataKey {
-    Admin,                  // -> Address
-    Contributor(Address),   // -> ContributorData
+    Admin,                // -> Address
+    Contributor(Address), // -> ContributorData
 }
 
 #[contracttype]
