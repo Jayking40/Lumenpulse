@@ -1,8 +1,8 @@
 #![no_std]
 
 mod errors;
-mod math;
 mod events;
+mod math;
 mod storage;
 mod token;
 
@@ -340,7 +340,7 @@ impl CrowdfundVaultContract {
         if env
             .storage()
             .persistent()
-            .has(&DataKey::Contributor(contributor.clone()))
+            .has(&DataKey::RegisteredContributor(contributor.clone()))
         {
             return Err(CrowdfundError::AlreadyRegistered);
         }
@@ -348,7 +348,7 @@ impl CrowdfundVaultContract {
         // Store registration
         env.storage()
             .persistent()
-            .set(&DataKey::Contributor(contributor.clone()), &true);
+            .set(&DataKey::RegisteredContributor(contributor.clone()), &true);
 
         // Initialize reputation
         env.storage()
@@ -387,7 +387,7 @@ impl CrowdfundVaultContract {
         if !env
             .storage()
             .persistent()
-            .has(&DataKey::Contributor(contributor.clone()))
+            .has(&DataKey::RegisteredContributor(contributor.clone()))
         {
             return Err(CrowdfundError::ContributorNotFound);
         }
@@ -421,7 +421,7 @@ impl CrowdfundVaultContract {
         if !env
             .storage()
             .persistent()
-            .has(&DataKey::Contributor(contributor.clone()))
+            .has(&DataKey::RegisteredContributor(contributor.clone()))
         {
             return Err(CrowdfundError::ContributorNotFound);
         }

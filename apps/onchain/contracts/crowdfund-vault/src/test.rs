@@ -544,7 +544,6 @@ fn test_distribute_match() {
 }
 
 #[test]
-fn test_distribute_match_insufficient_pool() {
 fn test_contributor_registration() {
     let env = Env::default();
     env.mock_all_auths();
